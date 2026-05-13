@@ -14,6 +14,17 @@
 };
 
 / {
+    behaviors {
+        touche_question: touche_question {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TOUCHE_QUESTION";
+            bindings = <&kp KP_MINUS>, <&kp QUESTION>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -27,10 +38,10 @@
             //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESCAPE  &kp Q  &kp C  &kp O         &kp P  &kp W      &kp C_MUTE  &kp C_PP  &kp J      &kp M  &kp D     &kp EXCLAMATION  &kp Y  &kp BSPC
-&kp TAB     &kp A  &kp S  &kp E         &kp N  &kp F      &kp LALT    &kp RALT  &kp L      &kp R  &kp T     &kp I            &kp U  &kp ENTER
-&kp LSHFT   &kp Z  &kp X  &kp QUESTION  &kp V  &kp B                            &kp COLON  &kp H  &kp G     &kp SEMICOLON    &kp K  &kp ESC
-                          &kp LGUI      &mo 1  &kp SPACE                        &kp RET    &mo 2  &kp RALT
+&kp ESCAPE  &kp Q  &kp C  &kp O             &kp P  &kp W      &kp C_MUTE  &kp C_PP  &kp J      &kp M  &kp D     &kp EXCLAMATION  &kp Y  &kp BSPC
+&kp TAB     &kp A  &kp S  &kp E             &kp N  &kp F      &kp LALT    &kp RALT  &kp L      &kp R  &kp T     &kp I            &kp U  &kp ENTER
+&kp LSHFT   &kp Z  &kp X  &touche_question  &kp V  &kp B                            &kp COLON  &kp H  &kp G     &kp SEMICOLON    &kp K  &kp ESC
+                          &kp LCTRL         &mo 1  &kp SPACE                        &mo 3      &mo 2  &kp RALT
             >;
         };
 
@@ -68,7 +79,7 @@
             >;
         };
 
-        extra_layer_1 {
+        accents {
             display-name = "EXTRA 1";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
