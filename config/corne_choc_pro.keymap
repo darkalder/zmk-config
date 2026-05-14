@@ -24,6 +24,74 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        touche_deux_points: touche_deux_points {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TOUCHE_DEUX_POINTS";
+            bindings = <&kp PERIOD>, <&kp COLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        touche_point_virgule: touche_point_virgule {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TOUCHE_POINT_VIRGULE";
+            bindings = <&kp FR_COMMA>, <&kp FR_SEMICOLON>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        c_cedille: c_cedille {
+            compatible = "zmk,behavior-hold-tap";
+            label = "C_CEDILLE";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;
+            flavor = "tap-preferred";
+        };
+
+        HMShiftR: HMShiftR {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMSHIFTR";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            hold-while-undecided;
+            hold-trigger-key-positions = <0 15 16 17 18 19 29 30 31 32 33 40 41 5 6 19 20 33 41 42 0 1 2 3 4 14 15 16 17 18 28 29 30 31 32>;
+            hold-trigger-on-release;
+        };
+
+        HMShiftL: HMShiftL {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMSHIFTL";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            hold-while-undecided;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <13 27 26 24 23 22 21 34 35 36 37 38 39 25 11 12 10 9 8 7 43 44 45>;
+        };
+    };
+
+    macros {
+        onglet_droit: haut {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp PAGE_UP>;
+            label = "HAUT";
+        };
+
+        onglet_gauche: onglet_gauche {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp PAGE_DOWN>;
+            label = "ONGLET_GAUCHE";
+        };
     };
 
     keymap {
@@ -39,10 +107,10 @@
             //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESCAPE  &kp Q  &kp C  &kp O             &kp P  &kp W      &kp C_MUTE  &kp C_PP  &kp J      &kp M  &kp D     &kp EXCLAMATION  &kp Y  &kp BSPC
-&kp TAB     &kp A  &kp S  &kp E             &kp N  &kp F      &kp LALT    &kp RALT  &kp L      &kp R  &kp T     &kp I            &kp U  &kp ENTER
-&kp LSHFT   &kp Z  &kp X  &touche_question  &kp V  &kp B                            &kp COLON  &kp H  &kp G     &kp SEMICOLON    &kp K  &kp ESC
-                          &kp LCTRL         &mo 1  &kp SPACE                        &mo 3      &mo 2  &kp RALT
+&kp ESCAPE  &kp Q  &c_cedille FR_C_CEDILLA C  &kp O             &kp P                   &kp W      &kp C_MUTE  &kp K_PLAY_PAUSE  &kp J                &kp M               &kp D         &kp EXCLAMATION        &kp Y  &kp BSPC
+&kp TAB     &kp A  &kp S                      &kp E             &HMShiftL N LEFT_SHIFT  &kp F      &kp LALT    &kp LEFT_GUI      &kp L                &HMShiftR R RSHIFT  &kp T         &kp I                  &kp U  &kp ENTER
+&kp LSHFT   &kp Z  &kp X                      &touche_question  &kp V                   &kp B                                    &touche_deux_points  &kp H               &kp G         &touche_point_virgule  &kp K  &kp RIGHT_ALT
+                                              &kp LCTRL         &mo 1                   &kp SPACE                                &mo 3                &mo 2               &kp LEFT_ALT
             >;
         };
 
@@ -56,10 +124,10 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-&kp TAB    &kp N1        &kp N2           &kp N3        &kp N4        &kp N5          &kp LCTRL  &kp RCTRL  &kp N6    &kp N7    &kp N8     &kp N9     &kp N0  &kp BSPC
-&kp LCTRL  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LALT   &kp RALT   &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT  &trans  &trans
-&kp LSHFT  &bt BT_CLR    &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock                        &trans    &trans    &trans     &trans     &trans  &bt BT_NXT
-                                          &kp LGUI      &trans        &kp SPACE                             &kp LGUI  &trans    &kp SPACE
+&kp TAB    &kp N1          &kp N2           &kp N3          &kp N4        &kp N5          &kp LCTRL  &kp RCTRL  &kp N6    &kp N7          &kp N8         &kp N9     &kp N0  &kp DELETE
+&kp LCTRL  &kp FR_A_GRAVE  &kp FR_E_ACUTE   &kp FR_E_GRAVE  &bt BT_SEL 0  &bt BT_SEL 1    &kp LALT   &kp RALT   &kp LEFT  &kp DOWN        &kp UP         &kp RIGHT  &trans  &trans
+&kp LSHFT  &bt BT_CLR      &rgb_ug RGB_TOG  &sys_reset      &bootloader   &studio_unlock                        &trans    &onglet_gauche  &onglet_droit  &trans     &trans  &bt BT_NXT
+                                            &kp LGUI        &trans        &kp SPACE                             &kp LGUI  &trans          &kp SPACE
             >;
         };
 
