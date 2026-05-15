@@ -37,7 +37,7 @@
         touche_point_virgule: touche_point_virgule {
             compatible = "zmk,behavior-mod-morph";
             label = "TOUCHE_POINT_VIRGULE";
-            bindings = <&kp KP_COMMA>, <&kp SEMICOLON>;
+            bindings = <&kp COMMA>, <&kp SEMICOLON>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -142,6 +142,15 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        layer3 {
+            bindings = <&mo 3>;
+            key-positions = <41 43>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -155,7 +164,7 @@
             //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESCAPE     &kp Q  &c_cedille RA(COMMA) C  &kp O             &kp P              &kp W      &kp TAB   &kp K_PLAY_PAUSE  &kp J                &kp M               &kp D         &kp EXCLAMATION        &kp Y  &kp BSPC
+&kp ESCAPE     &kp Q  &c_cedille RA(COMMA) C  &kp O             &kp P              &kp W      &kp TAB   &kp K_PLAY_PAUSE  &kp J                &kp M               &kp D         &kp EXCL               &kp Y  &kp BSPC
 &kp PAGE_UP    &kp A  &HML LEFT_GUI S         &HML LCTRL E      &HMShiftL LSHFT N  &kp F      &kp LALT  &kp RALT          &HMR LEFT_ALT L      &HMShiftR RSHIFT R  &HMR LCTRL T  &HMR RGUI I            &kp U  &kp ENTER
 &kp PAGE_DOWN  &kp Z  &kp X                   &touche_question  &kp V              &kp B                                  &touche_deux_points  &kp H               &kp G         &touche_point_virgule  &kp K  &kp RIGHT_ALT
                                               &kp LCTRL         &mo 1              &kp SPACE                              &mo 2                &kp LGUI            &kp ENTER
@@ -172,10 +181,10 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-&kp F1  &kp N1          &kp N2          &kp N3          &kp N4        &kp N5        &rgb_ug RGB_TOG  &bootloader     &kp N6     &kp N7     &kp N8    &kp N9     &kp N0  &kp DELETE
-&kp F2  &kp FR_A_GRAVE  &kp FR_E_ACUTE  &kp FR_E_GRAVE  &bt BT_SEL 0  &bt BT_SEL 1  &kp K_MUTE       &studio_unlock  &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans  &sys_reset
-&kp F3  &kp F4          &kp F5          &kp F6          &kp F7        &kp F8                                         &kp F9     &kp F10    &kp F11   &kp F12    &trans  &bt BT_NXT
-                                        &kp LEFT_ALT    &trans        &kp SPACE                                      &kp LSHFT  &kp LCTRL  &kp LGUI
+&kp F1  &kp N1          &kp N2          &kp N3          &kp N4  &kp N5     &trans      &bootloader     &kp N6     &kp N7     &kp N8    &kp N9     &kp N0  &kp DELETE
+&kp F2  &kp FR_A_GRAVE  &kp FR_E_ACUTE  &kp FR_E_GRAVE  &trans  &trans     &kp K_MUTE  &studio_unlock  &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans  &trans
+&kp F3  &kp F4          &kp F5          &kp F6          &kp F7  &kp F8                                 &kp F9     &kp F10    &kp F11   &kp F12    &trans  &trans
+                                        &kp LEFT_ALT    &trans  &kp SPACE                              &kp LSHFT  &kp LCTRL  &kp LGUI
             >;
         };
 
@@ -199,10 +208,10 @@
         extra_layer_2 {
             display-name = "EXTRA 2";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                  &trans  &trans  &trans
+&trans                          &trans                            &trans                            &trans                           &trans                            &trans                             &rgb_ug RGB_TOG  &trans  &trans  &trans        &trans        &trans        &trans      &trans
+&rgb_ug RGB_COLOR_HSB(0,0,100)  &rgb_ug RGB_COLOR_HSB(70,100,50)  &rgb_ug RGB_COLOR_HSB(112,99,50)  &rgb_ug RGB_COLOR_HSB(0,100,50)  &rgb_ug RGB_COLOR_HSB(189,97,50)  &rgb_ug RGB_COLOR_HSB(292,100,50)  &rgb_ug RGB_EFF  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans      &sys_reset
+&trans                          &trans                            &trans                            &trans                           &trans                            &trans                                                      &trans  &trans        &trans        &trans        &bt BT_CLR  &bt BT_NXT
+                                                                                                    &trans                           &trans                            &trans                                                      &trans  &trans        &trans
             >;
         };
 
