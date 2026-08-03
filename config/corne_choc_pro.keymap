@@ -281,10 +281,10 @@
             //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
 
             bindings = <
-&kp PAGE_DOWN  &kp Q  &c_cedille RA(COMMA) C  &kp O         &kp P              &kp W      &kp LEFT_GUI  &kp K_PLAY_PAUSE  &kp J                &kp M               &kp D         &kp EXCL               &kp Y  &kp BSPC
-&kp PAGE_UP    &kp A  &HML LEFT_GUI S         &HML LCTRL E  &HMShiftL LSHFT N  &kp F      &kp LALT      &kp RALT          &HMR LEFT_ALT L      &HMShiftR RSHIFT R  &HMR LCTRL T  &HMR RGUI I            &kp U  &kp ENTER
-&kp ESC        &kp Z  &kp X                   &kp QUESTION  &kp V              &kp B                                      &touche_deux_points  &kp H               &kp G         &touche_point_virgule  &kp K  &kp RIGHT_ALT
-                                              &kp LCTRL     &mo 1              &kp SPACE                                  &kp TAB              &mo 2               &kp ENTER
+&kp PAGE_DOWN  &kp Q  &c_cedille RA(COMMA) C  &kp O         &kp P              &kp W      &kp TAB   &kp K_PLAY_PAUSE  &kp J                &kp M               &kp D         &kp EXCL               &kp Y  &kp BSPC
+&kp PAGE_UP    &kp A  &HML LEFT_GUI S         &HML LCTRL E  &HMShiftL LSHFT N  &kp F      &kp LALT  &kp RALT          &HMR LEFT_ALT L      &HMShiftR RSHIFT R  &HMR LCTRL T  &HMR RGUI I            &kp U  &kp ENTER
+&kp ESC        &kp Z  &kp X                   &kp QUESTION  &kp V              &kp B                                  &touche_deux_points  &kp H               &kp G         &touche_point_virgule  &kp K  &kp RIGHT_ALT
+                                              &kp LCTRL     &mo 1              &kp SPACE                              &kp TAB              &mo 2               &kp ENTER
             >;
         };
 
