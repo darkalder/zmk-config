@@ -316,10 +316,10 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-&kp F1  &kp N1      &kp N2           &kp N3           &kp N4          &kp N5             &trans      &bootloader     &kp N6     &kp N7     &kp N8    &kp N9     &kp N0     &kp DELETE
-&kp F2  &e_chapeau  &a_accent_grave  &e_accent_grave  &e_accent_aigu  &Emaj_accent_aigu  &kp K_MUTE  &studio_unlock  &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &u_accent  &trans
-&kp F3  &kp F4      &kp F5           &kp F6           &kp F7          &kp F8                                         &kp F9     &kp F10    &kp F11   &kp F12    &trans     &trans
-                                     &kp LEFT_ALT     &trans          &kp SPACE                                      &kp LSHFT  &kp LCTRL  &kp LGUI
+&kp F1  &kp N1      &kp N2           &kp N3           &kp N4          &kp N5             &trans      &bootloader     &kp N6     &kp N7     &kp N8      &kp N9     &kp N0     &kp DELETE
+&kp F2  &e_chapeau  &a_accent_grave  &e_accent_grave  &e_accent_aigu  &Emaj_accent_aigu  &kp K_MUTE  &studio_unlock  &kp LEFT   &kp DOWN   &kp UP      &kp RIGHT  &u_accent  &trans
+&kp F3  &kp F4      &kp F5           &kp F6           &kp F7          &kp F8                                         &kp F9     &kp F10    &kp F11     &kp F12    &trans     &trans
+                                     &kp LEFT_ALT     &trans          &kp SPACE                                      &kp LSHFT  &kp LCTRL  &kp DELETE
             >;
         };
 
