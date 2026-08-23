@@ -59,7 +59,7 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <175>;
+            tapping-term-ms = <225>;
             hold-trigger-key-positions = <0 15 16 17 18 19 29 30 31 32 33 40 41 5 6 19 20 33 41 42 0 1 2 3 4 14 15 16 17 18 28 29 30 31 32>;
             hold-trigger-on-release;
         };
@@ -120,7 +120,7 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <225>;
             hold-trigger-on-release;
             hold-trigger-key-positions = <7 8 9 10 11 12 13 21 22 23 24 25 26 27 34 35 36 37 38 39 43 44 45>;
         };
@@ -257,6 +257,24 @@
 
             label = "U_ACCENT";
         };
+
+        apostrophe: apostrophe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_wait_time 15>,
+                <&macro_tap_time 15>,
+                <&macro_press>,
+                <&kp LCTRL &kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&kp U>,
+                <&macro_release>,
+                <&kp LCTRL &kp LSHFT>,
+                <&macro_tap>,
+                <&kp B &kp NUMBER_4 &kp SPACE>;
+
+            label = "APOSTROPHE";
+        };
     };
 
     combos {
@@ -315,9 +333,9 @@
             //                    | GUI |     | SPC |               | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp CARET       &kp LESS_THAN         &kp GREATER_THAN       &kp DLLR         &kp PRCNT  &kp LCTRL  &kp RCTRL  &kp AT_SIGN           &kp AMPS  &kp ASTRK  &kp APOS   &kp RPAR           &kp DELETE
-&kp LCTRL  &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp EQUAL  &kp LALT   &kp RALT   &kp NON_US_BACKSLASH  &kp PLUS  &kp MINUS  &kp SLASH  &kp DOUBLE_QUOTES  &kp GRAVE
-&kp LSHFT  &kp TILDE       &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp UNDERSCORE   &kp POUND                        &kp PIPE              &kp EXCL  &kp LBRC   &kp RBRC   &kp QMARK          &kp TILDE
+&kp TAB    &kp CARET       &kp LESS_THAN         &kp GREATER_THAN       &kp DLLR         &kp PRCNT  &kp LCTRL  &kp RCTRL  &kp AT_SIGN           &kp AMPS  &kp ASTRK  &apostrophe  &kp RPAR           &kp DELETE
+&kp LCTRL  &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp EQUAL  &kp LALT   &kp RALT   &kp NON_US_BACKSLASH  &kp PLUS  &kp MINUS  &kp SLASH    &kp DOUBLE_QUOTES  &kp GRAVE
+&kp LSHFT  &kp TILDE       &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp UNDERSCORE   &kp POUND                        &kp PIPE              &kp EXCL  &kp LBRC   &kp RBRC     &kp QMARK          &kp TILDE
                                                  &kp LGUI               &trans           &kp SPACE                        &kp RET               &trans    &kp RALT
             >;
         };
